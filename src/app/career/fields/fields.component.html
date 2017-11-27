@@ -1,0 +1,17 @@
+
+
+<div class=" wrap text"><span class="filter" [routerLink] = "['/careers/jobs']">Todas as vagas</span></div>
+
+<div class="wrap text" appProgressbar [pagenation] = "0">
+  <div [routerLink] = "['/careers/jobs', field.id]" class="card" *ngFor = "let field of fields">
+    <div>
+      <img src="http://via.placeholder.com/150x150" alt="PlaceHolder">
+    </div>
+    <div>
+      <h3 class="subtitle">{{field.name}}</h3>
+      <p class="desc">{{field.info}}</p>
+      <button [routerLink] = "['/careers/jobs', field.id]" class="btn btn-flat">Ver Vagas</button>
+    </div>
+  </div>
+
+</div>
