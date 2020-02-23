@@ -1,0 +1,142 @@
+/*Plugin's*/
+
+/*Slideout.js*/
+
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 256px;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  display: none;
+  background-color: #FEFEFE;
+}
+
+.slideout-menu-left {
+  left: 0;
+}
+
+.slideout-menu-right {
+  right: 0;
+}
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  background-color: #FFF;
+  min-height: 100vh;
+}
+
+.slideout-open, .slideout-open body, .slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}
+
+/*Step by Step*/
+
+.progressbar {
+  position: relative;
+  clear: both;
+  display: block;
+  text-align: center;
+  top: 0;
+  margin: auto;
+  padding: 56px 10% 56px 10%;
+  height: 10px;
+  width: 80%;
+  z-index: 2;
+  background-color: #EDEDEE;
+}
+
+.progress-header {
+  position: fixed;
+  padding: 20px 35% 16px 35%;
+  height: 20px;
+  width: 30%;
+  z-index: 15;
+  background-color: #EDEDEE;
+}
+
+.progressbar li {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 30%;
+}
+
+.progressbar li:before {
+  display: inline-block;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  /*Aumentar quando no pc*/
+  background-color: #DFDFDF;
+  counter-increment: step;
+  content: ' ';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  line-height: 15px;
+  border: 4px solid #DFDFDF;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.progress-header li:before {
+  width: 2px;
+  height: 2px;
+}
+
+.progressbar li:after {
+  top: 7.5px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  content: '';
+  position: absolute;
+  background-color: #DFDFDF;
+  z-index: -1;
+}
+
+.progress-header li:after {
+  top: 6px;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active {
+  color: #FF524E;
+  transition: color 500ms ease;
+}
+
+.progressbar li.active:before {
+  background-color: #22163A;
+  border-color: #22163A;
+  transition: background 500ms ease;
+  transition: border-color 250ms ease;
+}
+
+.progressbar li.active+li:after {
+  background-color: #22163A;
+  transition: background 500ms ease;
+}
+
+.progressbar li.now {
+  color: #22163A;
+  transition: color 500ms ease;
+}
+
+.progressbar li.now:before {
+  background-color: #FF524E;
+  border-color: #FF524E;
+  transition: background 500ms ease;
+  transition: border-color 250ms ease;
+}

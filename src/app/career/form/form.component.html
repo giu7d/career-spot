@@ -1,0 +1,170 @@
+<div class="job-info" *ngFor="let job of jobs">
+  <i class="material-icons md-24">work</i>
+  <h3 class="title">{{job.name}}</h3>
+  <i [routerLink]="['/careers/jobs', job.categorie]" class="material-icons md-24">cancel</i>
+</div>
+
+<div class="wrap text" appProgressbar [pagenation]="3">
+
+  <form id="form" (ngSubmit) = "onSubmit(form)" #form = "ngForm">
+    <div class="wrap form">
+      <h3 class="title">Curriculum</h3>
+      <p class="parag">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <input  type="file"
+              id="file"
+              name="file"
+              class="inputfile"
+              #file
+              (change) = "setFileName()"
+              required >
+
+      <label id="fileLabel" for="file"> Selecionar Arquivo </label>
+    </div>
+
+    <div class="wrap form">
+      <h3 class="title">Informações Pessoais</h3>
+      <p class="parag">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <br>
+<!-- Name -->
+      <div class="group">
+        <input  type="text"
+                id="name"
+                name="name"
+                class="input"
+                ngModel
+                required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="name" class="label"> Nome completo </label>
+      </div>
+<!-- EMail -->
+      <div class="group">
+        <input  type="text"
+                id="email"
+                name="email"
+                class="input"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                ngModel
+                required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="email" class="label"> Email </label>
+      </div>
+
+
+      <!-- <div class="group hide">
+        <input  type="text"
+                id="email2"
+                name="email2"
+                class="input"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                ngModel>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="email2" class="label">Email 2 (opcional)</label>
+      </div> -->
+<!--
+      <button   id="email2Trigger"
+                type="button"
+                name="button"
+                class="btn btn-flat btn-form"
+                (click) = "addInput('#email2')">
+        <i class="material-icons md-24">add</i> outro email
+      </button> -->
+
+<!-- Telefone -->
+      <div class="group">
+        <input  type="text"
+                id="phone"
+                name="phone"
+                class="input"
+                ngModel
+                required
+                (keyup) = "setMask()">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="phone" class="label"> Telefone </label>
+      </div>
+
+      <!-- <div class="group hide">
+        <input  type="text"
+                id="phone2"
+                name="phone2"
+                class="input"
+                ngModel
+                (keyup) = "setMask()">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="phone2" class="label"> Telefone 2 (opcional) </label>
+      </div> -->
+
+      <!-- <button   id="phone2Trigger"
+                type="button"
+                name="button"
+                class="btn btn-flat btn-form"
+                (click) = "addInput('#phone2')">
+        <i class="material-icons md-24">add</i> outro telefone
+      </button> -->
+
+<!-- Adress -->
+      <div class="group">
+        <input  type="text"
+                id="adress"
+                name="adress"
+                class="input"
+                ngModel
+                required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="adress" class="label"> Endereço </label>
+      </div>
+
+      <div class="group">
+        <input  type="text"
+                id="cep"
+                name="cep"
+                class="input"
+                maxlength="9"
+                pattern="\d{5}-?\d{3}"
+                ngModel
+                required
+                (keyup) = "setMask(); addAdress(form)">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="cep" class="label"> CEP </label>
+      </div>
+
+      <div id="adressHiddenContainer1" class="group hide">
+        <input  type="text"
+                id="city"
+                name="city"
+                class="input"
+                value="{{city}}"
+                ngModel
+                required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="city" class="label"> Cidade </label>
+      </div>
+
+      <div id="adressHiddenContainer2" class="group hide">
+        <input  type="text"
+                id="state"
+                name="state"
+                class="input"
+                value="{{state}}"
+                ngModel
+                required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="state" class="label">Estado</label>
+      </div>
+
+      <button   type="submit"
+                class="btn btn-full btn-form"
+                >
+        <i class="material-icons md-24">send</i> Enviar
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="wrap text" appProgressbar [pagenation]="1">
+
+  <div class="fullWidth">
+    <ng-container *ngIf="!isAllJobs()">
+      <span *ngFor="let field of fields" class="chip">
+
+        {{field.name}}
+
+        <i class="material-icons"
+          [routerLink] = "['/careers/jobs']">
+          cancel
+        </i>
+      </span>
+    </ng-container>
+    <ng-container *ngIf = "isAllJobs()">
+      <span class="filter">
+      Adicionar Filtro
+      <ul>
+        <li
+          *ngFor = "let field of fields"
+          [routerLink] = "['/careers/jobs', field.id]">
+          {{field.name}}
+        </li>
+      </ul>
+    </span>
+    </ng-container>
+
+  </div>
+
+  <div class="item" [routerLink]="['/careers/apply', job.id]" *ngFor="let job of jobs">
+    <h3 class="title">{{job.name}}</h3>
+    <!-- <i class="material-icons md-24">favorite_border</i> -->
+    <p class="desc">{{job.info}}</p>
+  </div>
+
+  <div class="wrap text">
+    <h3 class="parag" *ngIf="emptyCategory()">Ops... Parece que não há vagas para essa categoria!</h3>
+  </div>
+
+</div>
