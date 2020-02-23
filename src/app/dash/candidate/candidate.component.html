@@ -1,0 +1,39 @@
+<div 
+    *ngFor = "let c of candidates"
+    id="{{c.id}}" 
+    class="ng-item ng-pointer limit-height grey lighten-5" 
+    (click)="triggerMore($event, c.id)">
+    <!-- *ngFor = "let i of candidates"> -->
+    
+  <div class="row">
+    <div class="col s1">
+      <span class="btn-floating btn disabled" >{{c.name[0]}}</span>
+    </div>
+    <div class="col s5">
+      <h5>{{c.name}}</h5>
+      <!-- <i class="minimal-text">12h</i> -->
+    </div>
+
+    <div class="col s4">
+      <div class="chip balance">{{c.jobApply}}</div>
+    </div>
+
+    <div class="col s2">
+      <a class="right balance" (click)="triggerDownload(c.id)">
+        <i class="material-icons">file_download</i>
+      </a>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col s10 push-s1 pull-s1">
+      <p class="flow-text">Detalhes: </p>
+      <blockquote>
+        <b>Email:</b> {{c.email}} <br>
+        <b>Tel.:</b> {{c.phone}} <br>
+        <b>Endereço:</b> {{c.adress}} - {{c.city}} ({{c.cep}}) - {{c.state}} <br>
+      </blockquote>
+    </div>
+  </div>
+
+</div>
